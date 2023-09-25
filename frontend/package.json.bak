@@ -1,8 +1,9 @@
 {
-  "name": "p-1",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@7polo/editorjs-code": "^1.1.1",
     "@ant-design/icons": "^5.1.4",
     "@codemirror/autocomplete": "^6.9.0",
     "@codemirror/commands": "^6.2.4",
