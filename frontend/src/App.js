@@ -1,11 +1,11 @@
 import './App.css';
 import {HashRouter, Route, Routes} from "react-router-dom";
 import WelcomeLayout from "./components/WelcomeLayout";
-import {EditNotePage} from "./pages/Local/EditNotePage";
-import {AuthorizationPage} from "./pages/AuthorizationPage";
+import {EditNotePage} from "./pages/Notes/EditNotePage";
+import {AuthorizationPage} from "./pages/Authorization/Authorization";
 import RequireUnauth from "./hoc/RequireUnauth";
 import RequireAuth from "./hoc/RequireAuth";
-import {NetworkNotePage} from "./pages/Network/NetworkNotePage";
+import {NotePage} from "./pages/Notes/NotePage";
 import {HomePage} from "./pages/HomePage";
 import {TasksPage} from "./pages/TasksPage";
 import {SchemesPage} from "./pages/SchemesPage";
@@ -14,6 +14,7 @@ import {SchemeEditPage} from "./pages/SchemeEditPage";
 import React from "react";
 import {NotFoundPage} from "./pages/NotFoundPage";
 import {NotDevelopedPage} from "./pages/NotDevelopedPage";
+import {SettingsPage} from "./pages/SettingsPage";
 
 function MyApp() {
     return (
@@ -50,12 +51,12 @@ function MyApp() {
                         <Route path='schemes' element={<SchemesPage/>}/>
                         <Route path='scheme/:schemeID' element={<SchemeEditPage/>}/>
 
-                        <Route path='settings' element={<NotDevelopedPage selectedKey={"Settings"}/>}/>
-                        {/*<Route path='settings' element={<SettingsPage/>}/>*/}
+                        {/*<Route path='settings' element={<NotDevelopedPage selectedKey={"Settings"}/>}/>*/}
+                        <Route path='settings' element={<SettingsPage/>}/>
 
 
-                        <Route path='network/note/:noteID' element={<NetworkNotePage/>}/>
-                        <Route path='network/edit/:noteID' element={<EditNotePage/>}/>
+                        <Route path='note/:noteID' element={<NotePage/>}/>
+                        <Route path='note/edit/:noteID' element={<EditNotePage/>}/>
                         <Route path='*' element={<NotFoundPage/>}/>
                     </Route>
 

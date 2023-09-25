@@ -2,6 +2,7 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import API from '../../api/API';
 import 'react-toastify/dist/ReactToastify.css';
 import { App } from 'antd';
+import {createTimeTrackingRecord} from "./timeTrackingSlice";
 
 export const signInUser = createAsyncThunk(
     'user/signIn',
@@ -13,12 +14,7 @@ export const signInUser = createAsyncThunk(
             });
 
             if (!response.ok) {
-                // alert("Username or password is incorrect");
-                throw new Error(
-                    `${response.status}${
-                        response.statusText ? ' ' + response.statusText : ''
-                    }`
-                );
+                throw new Error();
             }
             response = await response.json();
 
@@ -71,6 +67,9 @@ const userSlice = createSlice({
         },
     },
     extraReducers: {
+        [signInUser.rejected]: (state, action) => {
+            throw new Error(`Неправильный логин или пароль`);
+        },
     },
 });
 

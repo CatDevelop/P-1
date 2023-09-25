@@ -7,7 +7,6 @@ import ChangeCase from "editorjs-change-case";
 import YoutubeEmbed from "editorjs-youtube-embed";
 import Subscript from "editorjs-subscript";
 import Telegram from "editorjs-telegram";
-import MermaidTool from "editorjs-mermaid";
 import List from "@editorjs/nested-list";
 import Header from "@editorjs/header";
 import Alert from "editorjs-alert";
@@ -47,7 +46,7 @@ export const i18n = {
             "Raw HTML": "HTML-фрагмент",
             "Table": "Таблица",
             "Attachment": "Файл",
-            "InlineImage": "Изображение по ссылке",
+            // "InlineImage": "Изображение по ссылке",
             MathTex: "Математика",
             "mermaid": "Mermaid",
             "Alert": "Предупреждение",

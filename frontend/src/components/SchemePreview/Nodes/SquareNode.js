@@ -1,16 +1,9 @@
-import React, {memo, useState} from 'react';
-import {Handle, NodeResizer, NodeToolbar, Position} from 'reactflow';
+import React, {memo} from 'react';
+import {Handle, Position} from 'reactflow';
 import styled from 'styled-components';
-import {Button, Form, Input, Tooltip} from 'antd'
+import {Form, Input} from 'antd'
 import s from '../SchemePreview.module.css'
 import classNames from 'classnames'
-import {
-    AlignCenterOutlined,
-    AlignLeftOutlined,
-    AlignRightOutlined,
-    DeleteOutlined,
-    FormatPainterOutlined
-} from "@ant-design/icons";
 
 const {TextArea} = Input;
 const Node = styled.div`

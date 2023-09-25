@@ -5,7 +5,6 @@ import CodeMirror from '@uiw/react-codemirror';
 import {langs} from '@uiw/codemirror-extensions-langs';
 import {vscodeDark} from '@uiw/codemirror-theme-vscode';
 import {autocompletion} from '@codemirror/autocomplete';
-import MyCodeMirror from "./MyCodeMirror"
 import "./TabMenu.css"
 
 function CodeEditor(props) {

@@ -14,7 +14,7 @@ export default function TaskCategoryBadge(props) {
 
     return (
         <Badge color={categories[props.id-1].color}
-               style={{width: "85px"}}
+               style={{width: "90px"}}
                variant={"outline"}
                radius={"sm"}
                size="sm">

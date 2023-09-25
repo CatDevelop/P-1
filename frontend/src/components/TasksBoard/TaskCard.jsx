@@ -6,6 +6,9 @@ import classNames from 'classnames'
 import TaskPriorityBadge from "../TaskComponents/TaskPriorityBadge/TaskPriorityBadge";
 import {Avatar, Tooltip} from "antd";
 const TaskCard = (props) => {
+    const priorityColors = [
+        "#20c997", "#845ef7", "#fcc419", "#cc5de8", "#adb5bd"
+    ]
     return (
         <Draggable draggableId={props.id} index={props.index}>
             {(provided) => (
@@ -18,6 +21,9 @@ const TaskCard = (props) => {
                         props.setEditTask(props.task)
                         props.setOpenTaskDrawer(true)
                     }}
+                    style={props.task.categoryID !== 0 ? {
+                        borderLeft: `5px solid ${priorityColors[props.task.categoryID-1]}`
+                    } : undefined}
                 >
                     <div className={s.rowContainer}>
                         <div>

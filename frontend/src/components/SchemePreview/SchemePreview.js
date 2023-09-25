@@ -1,5 +1,5 @@
-import React, {useCallback} from 'react';
-import ReactFlow, {addEdge, Background, Controls, MiniMap, useEdgesState, useNodesState,} from 'reactflow';
+import React from 'react';
+import ReactFlow, {Background,} from 'reactflow';
 import styled, {ThemeProvider} from 'styled-components';
 import {darkTheme} from './theme';
 import s from './SchemePreview.module.css'

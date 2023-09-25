@@ -1,17 +1,13 @@
 import React, {useState} from 'react';
 import s from './Menu.module.css';
-import {Badge, Menu, Popover} from "antd";
+import {Menu} from "antd";
 import {
     ApartmentOutlined,
     AppstoreOutlined,
     BellOutlined,
-    BugOutlined,
-    CalendarOutlined,
     FolderOpenOutlined,
-    HomeOutlined, LayoutOutlined,
-    MessageOutlined,
-    SettingOutlined,
-    UserOutlined
+    HomeOutlined,
+    SettingOutlined
 } from "@ant-design/icons";
 import {useNavigate} from "react-router-dom";
 
@@ -32,25 +28,21 @@ function FirstMenu(props) {
 
     const topMenu = [
         getItem('Основная', 'Home', <HomeOutlined/>),
-        getItem('Мессенджер', 'Messenger',
-            <Badge dot={true}
-                   size="small"
-                   offset={[10, 10]}>
-                <MessageOutlined/>
-            </Badge>),
-        getItem('Календарь', 'Schedule', <CalendarOutlined/>),
+        // getItem('Мессенджер', 'Messenger',
+        //     <Badge dot={true}
+        //            size="small"
+        //            offset={[10, 10]}>
+        //         <MessageOutlined/>
+        //     </Badge>),
+        // getItem('Календарь', 'Schedule', <CalendarOutlined/>),
 
-        {
-            type: 'divider',
-        },
+        // {type: 'divider',},
 
         getItem('Задачи', 'Tasks', <AppstoreOutlined/>),
-        getItem('Баги', 'Bugs', <BugOutlined/>),
-        getItem('Спринты', 'Sprints', <LayoutOutlined />),
+        // getItem('Баги', 'Bugs', <BugOutlined/>),
+        // getItem('Спринты', 'Sprints', <LayoutOutlined />),
 
-        {
-            type: 'divider',
-        },
+        // {type: 'divider',},
 
         getItem('Статьи', 'Notes', <FolderOpenOutlined/>),
         getItem('Схемы', 'Schemes', <ApartmentOutlined/>),

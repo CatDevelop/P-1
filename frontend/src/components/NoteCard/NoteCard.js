@@ -17,7 +17,7 @@ function NoteCard(props) {
             label: 'Перейти к статье',
             icon: <EyeOutlined/>,
             key: 'goToNote',
-            onClick: () => navigate("/network/note/" + props.id)
+            onClick: () => navigate("/note/" + props.id)
         } : null,
 
         props.type === "group" ? {
@@ -35,7 +35,7 @@ function NoteCard(props) {
             label: 'Редактировать статью',
             icon: <EditOutlined/>,
             key: 'editNote',
-            onClick: () => navigate("/network/edit/" + props.id)
+            onClick: () => navigate("/note/edit/" + props.id)
         } : null,
         props.type === "note" && props.ownerID === user.id ? {
             label: 'Редактировать мета-информацию',
@@ -102,7 +102,7 @@ function NoteCard(props) {
                       if (props.type === "group")
                           navigate("/notes/" + props.id)
                       else
-                          navigate("/network/note/" + props.id)
+                          navigate("/note/" + props.id)
                   }}
                   bordered={false}
             >
