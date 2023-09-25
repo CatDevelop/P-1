@@ -1,0 +1,15 @@
+.editNoteSeriesOwnerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+}
+
+.editNoteSeriesOwnerContainer p {
+    margin: 0;
+    padding: 0;
+    font-family: SFPro, serif;
+    color: #737373;
+    font-size: 12px;
+    text-align: end;
+}

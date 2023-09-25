@@ -1,0 +1,33 @@
+.container {
+    border: 1px solid #4F4F53;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 0 20px;
+}
+
+.title {
+    font-family: SFPro, serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    margin: 5px 0 15px;
+}
+
+.plusIcon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+
+
+}
+
+.plusIcon path {
+    stroke: white;
+    transition: all 0.2s ease;
+}
+
+.plusIcon:hover path{
+    stroke: #737373;
+}

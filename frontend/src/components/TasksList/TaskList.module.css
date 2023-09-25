@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.taskListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    max-width: 75vw;
+    width: 100%;
+}
+
+.taskListRowContainer {
+    padding: 4px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    background-color: transparent;
+}
+.taskListRowContainer:hover {
+    background-color: #313134;
+
+
+}
+
+.taskListRowName {
+    font-family: SFPro, serif;
+    color: #cccccc;
+    font-size: 17px;
+    line-height: 21px;
+    padding: 0;
+    margin: 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.taskListRowPriority{
+    font-family: SFPro, serif;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 0px 5px;
+    color: #4F4F53;
+}
+.completedTask {
+    text-decoration: line-through;
+    color: #737373;
+}
+
+.taskListRowNameUndefined {
+    color: #737373;
+}
+
+
+.taskListRowResponsibleName {
+    padding: 0;
+    margin: 0;
+    color: #737373;
+    white-space: nowrap;
+}
+
+
+.addTaskContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    max-width: 75vw;
+    width: 100%;
+    padding: 4px 5px;
+    box-sizing: border-box;
+}
+
+.addTaskInput {
+    padding: 0 2.5px;
+    margin: 0;
+    font-family: SFPro, serif;
+    color: #cccccc;
+    font-size: 17px;
+    line-height: 21px;
+}

@@ -1,0 +1,128 @@
+.taskName {
+    font-family: SFPro, serif;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 0;
+    border-radius: 0;
+    height: auto;
+    display: inline-table;
+}
+
+.taskOwnerInfo {
+    font-family: SFPro, serif;
+    color: #737373;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    text-align: end;
+}
+
+.taskStatus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+    border-radius: 5px;
+    background: rgb(59, 91, 219);
+    padding: 3px 10px;
+    color: white;
+
+    font-family: SFPro, serif;
+    font-weight: 400;
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.descriptions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+.descriptionItem {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 10px;
+}
+
+.descriptionItemName {
+    font-family: SFPro, serif;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    box-sizing: border-box;
+    line-height: 1;
+}
+
+.descriptionItemValue {
+    font-family: SFPro, serif;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 !important;
+    padding: 0;
+    width: 100%;
+    flex: 1;
+    line-height: 1.2;
+    white-space: pre-line;
+}
+
+.descriptionNotValue {
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.timeTrackingHeaderContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeTrackingContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timeTrackingNameContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    font-family: SFPro, serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+}
+
+.timeTrackingHeaderButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.timeTrackingHeaderButtonsContainer span {
+    color: rgb(22, 119, 255);
+}
+
+
+.timeTrackingListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px;
+
+}
+
+.noRecords {
+    font-family: SFPro, serif;
+    color: #97989F;
+    text-align: center;
+}

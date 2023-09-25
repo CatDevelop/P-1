@@ -1,0 +1,120 @@
+.previewContainer {
+    width: 100%;
+    height: 85vh;
+    border-radius: 20px;
+    border: 3px solid white;
+}
+
+.squareTextarea {
+    display: flex;
+    align-items: center;
+    /*background: transparent !important;*/
+    /*outline: none !important;*/
+    line-height: 16px !important;
+    color: white !important;
+    font-family: SFPro, serif !important;
+    width: 100% !important;
+    height: 100% !important;
+    resize:none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    /*border: 1px solid transparent !important;*/
+    /*box-shadow: none !important;*/
+    /*padding: 10px 20px ;*/
+    box-sizing: border-box !important;
+    -webkit-appearance: textfield !important;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+}
+
+.left {
+    text-align: start;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: end;
+}
+
+.nodeToolBar {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    background-color: #242428 !important;
+    border: 1px solid #4F4F53 !important;
+    padding: 2px !important;
+    border-radius: 5px !important;
+    box-sizing: content-box !important;
+}
+
+.edgeToolBar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    background-color: #242428 !important;
+    border: 1px solid #4F4F53 !important;
+    padding: 2px !important;
+    border-radius: 5px !important;
+    box-sizing: content-box !important;
+}
+
+.tool {
+    border-radius: 5px;
+    padding: 3px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.nodeTool {
+    border-radius: 5px;
+    padding: 3px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/*.tool path {*/
+/*    stroke: #C2C2C2;*/
+/*}*/
+.nodeTool:hover,
+.tool:hover {
+    background-color: #313134;
+}
+.nodeTool:active path,
+.tool:active path{
+    stroke: #FFFFFF;
+}
+
+.editable {
+    display: inline-block;
+    pointer-events: all;
+    text-align: center;
+    outline: none;
+
+    min-width: 50px;
+    /*min-height: 50px;*/
+}
+
+.editableContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,87 @@
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #4F4F53;
+    border-radius: 15px;
+    border: 2px solid white;
+    padding: 10px;
+}
+
+.description {
+    font-family: SFPro, serif;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+
+.squareNode {
+    cursor: move;
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+
+    background-color: #343435;
+    border-radius: 5px;
+    border: 1px solid #888;
+    position: relative;
+}
+
+.customNode {
+    cursor: move;
+    width: 100px;
+    height: 50px;
+    box-sizing: border-box;
+
+    background-color: #343435;
+    border-radius: 5px;
+    border: 1px solid #888;
+    position: relative;
+}
+
+.circleNode {
+    cursor: move;
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+
+    background-color: #343435;
+    border-radius: 100%;
+    border: 1px solid #888;
+    position: relative;
+}
+
+.squareNodeConnector {
+    background: #ff0072;
+    border: 1px solid white;
+    width: 8px;
+    height: 8px;
+    border-radius: 3px;
+
+    position: absolute;
+}
+
+.connectorTop {
+    left: 50%;
+    top: -4px;
+    transform: translate(-50%, 0);
+}
+
+.connectorLeft {
+    left: -4px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.connectorBottom {
+    left: 50%;
+    bottom: -4px;
+    transform: translate(-50%, 0);
+}
+
+.connectorRight {
+    right: -4px;
+    top: 50%;
+    transform: translate(0, -50%);
+}

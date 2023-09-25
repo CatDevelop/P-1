@@ -1,0 +1,130 @@
+.noteCard {
+    transition: all 0.5s ease;
+    background-color: #313134;
+    /*border: 1px #313134 solid;*/
+}
+.noteCard:hover {
+    transform: translateY(-5px);
+}
+.schemeCard {
+    border: 1px solid #303030;
+    background: #141414;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+}
+.schemeCardPreview {
+    cursor: pointer;
+}
+.blogMeta {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.blogData {
+    font-family: SFPro, serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+.blogTitle {
+    font-family: SFPro, serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 0;
+    margin: 5px 0;
+}
+.blogDescription {
+    font-family: SFPro, serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 5px 0;
+}
+.divider {
+    width: 25px;
+    border: 1px solid #81E6D9;
+}
+
+.groupDivider {
+    width: 25px;
+    border: 1px solid #F086CB;
+}
+
+
+.schemeUser {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.schemeUserName {
+    font-family: SFPro, serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #97989F;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 3px;
+}
+
+.noteBottom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+
+
+
+.createNodeCard {
+    width: 300px;
+    height: 400px;
+    background-color: #313134;
+    border: 1px #313134 solid;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px
+}
+
+
+.row {
+    width: 210px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 6px;
+    margin: 4px 0;
+
+    font-family: SFPro, serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+
+    cursor: pointer;
+}
+
+.row:hover path,
+.row:hover {
+    color: #F086CB;
+    fill: #F086CB;
+}

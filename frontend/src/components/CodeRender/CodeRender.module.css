@@ -1,0 +1,117 @@
+.sContainer {
+    max-width: 1000px;
+    box-sizing: border-box;
+}
+.codeContainer {
+    background-color: #313136;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.codeContainerTitle {
+    font-family: SFPro, serif;
+    font-size: 16px;
+    color: #FFFFFFCC;
+    padding: 10px 20px 8px 20px;
+    margin: 0;
+}
+
+.preCode {
+    background: #101012;
+    color: rgb(171, 178, 191);
+    text-shadow: rgba(0, 0, 0, 0.3) 0px 1px;
+    font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+    tab-size: 2;
+    hyphens: none;
+    padding: 1em;
+    margin: 0 0;
+    overflow: auto;
+    border-radius: 0 0 0;
+    height: 100%;
+    box-sizing: border-box;
+    /*height: 100%;*/
+    /*border-bottom-left-radius: 15px;*/
+    /*border-bottom-right-radius: 15px;*/
+}
+
+.code {
+    /*background: rgb(40, 44, 52);*/
+    color: rgb(171, 178, 191);
+    text-shadow: rgba(0, 0, 0, 0.3) 0px 1px;
+    font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+    tab-size: 2;
+    hyphens: none;
+    box-sizing: border-box;
+}
+
+.segmented {
+    display: flex;
+    /*padding: 0px 15px;*/
+    /*display: flex;*/
+    flex-direction: row;
+    /*align-items: center;*/
+    /*max-width: 1000px;*/
+    /*justify-content: center;*/
+
+}
+
+.footer {
+    padding: 0 25px;
+    /*padding: 5px 10px;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid #313134;
+
+    background-color: #171719;
+    border-radius: 0 0 15px 15px;
+}
+
+.footerLanguage {
+    font-family: SFPro, serif;
+    font-size: 14px;
+    color: #9C9C9C;
+    /*padding: 3px 10px;*/
+    margin: 0;
+    /*padding: 0 25px;*/
+
+
+    /*text-align: end;*/
+}
+
+.footerDescription {
+    font-family: SFPro, serif;
+    font-size: 14px;
+    color: #9C9C9C;
+    /*padding: 3px 10px;*/
+    margin: 0;
+    /*padding-left: 25px;*/
+}
+
+.codePart {
+    width: 100%;
+    /*height: 100%;*/
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /*overflow-x: auto !important;*/
+}
+
+.tab {
+    border-radius: 15px 15px 0 0;
+}

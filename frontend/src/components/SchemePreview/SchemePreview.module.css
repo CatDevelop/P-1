@@ -1,0 +1,39 @@
+.previewContainer {
+    width: 100%;
+    height: 70vh;
+    border-radius: 20px;
+}
+
+.squareTextarea {
+    display: flex;
+    align-items: center;
+    /*background: transparent !important;*/
+    /*outline: none !important;*/
+    line-height: 16px !important;
+    color: white !important;
+    font-family: SFPro, serif !important;
+    width: 100% !important;
+    height: 100% !important;
+    resize:none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    /*border: 1px solid transparent !important;*/
+    /*box-shadow: none !important;*/
+    /*padding: 10px 20px ;*/
+    box-sizing: border-box !important;
+    -webkit-appearance: textfield !important;
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+}
+
+.left {
+    text-align: start;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: end;
+}
