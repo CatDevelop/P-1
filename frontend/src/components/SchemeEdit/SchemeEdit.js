@@ -84,14 +84,6 @@ const Flow = ({children, props}) => {
     const dispatch = useDispatch()
     const {message} = App.useApp();
 
-    const save = useCallback(() => {
-        handleSave()
-    }, [])
-
-    const schortcutHandlers = {
-        SAVE: save
-    };
-
     const onChange = (event, id) => {
         setNodes((nds) =>
             nds.map((node) => {
@@ -243,12 +235,27 @@ const Flow = ({children, props}) => {
         saveEdges.map(edge => {
             delete edge.selected
         })
+        message.loading({content: 'Схема сохраняется на сервер...', key: "saveScheme"});
         dispatch(updateScheme({scheme: JSON.stringify({nodes: saveNodes, edges: saveEdges}), schemeID: props.schemeID}))
             .then(() => {
+                message.success({content:'Схема успешно сохранена!', key: "saveScheme"});
                 dispatch(getScheme(props.schemeID))
-                message.success('Схема успешно сохранена!');
             })
     }
+
+    const handleKeyDown = (e) => {
+        console.log(e)
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+            handleSave()
+            return false;
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, [])
 
     // useEffect(() => {
     //     // ipcRenderer.removeAllListeners('shortcutS')
@@ -343,38 +350,36 @@ const Flow = ({children, props}) => {
     );
 
     return (
-        <HotKeys keyMap={keyMap} handlers={schortcutHandlers}>
-            <ReactFlowStyled
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onNodesDelete={onNodesDelete}
-                onConnect={onConnect}
-                nodeTypes={nodeTypes}
-                edgeTypes={edgeTypes}
-                proOptions={{hideAttribution: true}}
-                fitView
-                snapGrid={[15, 15]}
-                snapToGrid={true}
-                onDrop={onDrop}
-                onDragOver={onDragOver}
-                ref={reactFlowWrapper}
-                connectionMode={"loose"}
-            >
-                {/*<MiniMapStyled />*/}
-                <ControlsStyled/>
-                <Background variant="dots" gap={15} size={1} color={"#4F4F53"}/>
-                {children}
-                <Panel position={"top-right"}>
-                    <SchemeSideBar/>
-                </Panel>
-                <FloatButton icon={<SaveOutlined/>} onClick={() => {
-                    console.log(saveFlow(nodes, edges), nodes)
-                    handleSave()
-                }}/>
-            </ReactFlowStyled>
-        </HotKeys>
+        <ReactFlowStyled
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            onNodesDelete={onNodesDelete}
+            onConnect={onConnect}
+            nodeTypes={nodeTypes}
+            edgeTypes={edgeTypes}
+            proOptions={{hideAttribution: true}}
+            fitView
+            snapGrid={[15, 15]}
+            snapToGrid={true}
+            onDrop={onDrop}
+            onDragOver={onDragOver}
+            ref={reactFlowWrapper}
+            connectionMode={"loose"}
+        >
+            {/*<MiniMapStyled />*/}
+            <ControlsStyled/>
+            <Background variant="dots" gap={15} size={1} color={"#4F4F53"}/>
+            {children}
+            <Panel position={"top-right"}>
+                <SchemeSideBar/>
+            </Panel>
+            <FloatButton icon={<SaveOutlined/>} onClick={() => {
+                console.log(saveFlow(nodes, edges), nodes)
+                handleSave()
+            }}/>
+        </ReactFlowStyled>
     );
 };
 
