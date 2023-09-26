@@ -1,0 +1,23 @@
+.none {
+
+}
+
+.frontend {
+    border-left: 5px solid #20c997;
+}
+
+.backend {
+    border-left: 5px solid #845ef7;
+}
+
+.mobile {
+    border-left: 5px solid #fcc419;
+}
+
+.design {
+    border-left: 5px solid #cc5de8;
+}
+
+.analitycs {
+    border-left: 5px solid #228be6;
+}

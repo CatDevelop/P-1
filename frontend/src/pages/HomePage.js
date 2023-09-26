@@ -78,7 +78,7 @@ export const HomePage = () => {
                     <div className={classes.inner}>
                         <div className={classes.content}>
                             <Title className={classes.title}>
-                                Система управления проектами <span className={classes.highlight}>P-1</span>
+                                Система управления проектами <span className={classes.highlight}>π-1</span>
                             </Title>
                             <Text color="dimmed" mt="md">
                                 Эффективное управление проектом для твоей команды. Все инструменты - теперь в одном приложении

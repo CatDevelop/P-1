@@ -1,25 +1,20 @@
 import {Badge} from "@mantine/core";
 import React from "react";
+import {categories as taskCategories} from "../../../core/models/taskEntities";
 
 export default function TaskCategoryBadge(props) {
-    const categories = [
-        {label: 'Frontend', color: "teal"},
-        {label: 'Backend', color: "violet"},
-        {label: 'Mobile', color: "yellow"},
-        {label: 'Дизайн', color: "grape"},
-        {label: 'Аналитика', color: "gray"}
-    ]
-    if(props.id === 0)
-        return;
+    // if (props.id === 0)
+    //     return;
 
     return (
-        <Badge color={categories[props.id-1].color}
-               style={{width: "90px"}}
+        <Badge color={taskCategories[props.id].textColor}
+               style={{width: "115px"}}
                variant={"outline"}
                radius={"sm"}
-               size="sm">
+               size="sm"
+        >
             {
-                categories[props.id-1].label
+                taskCategories[props.id].name
             }
         </Badge>
     )

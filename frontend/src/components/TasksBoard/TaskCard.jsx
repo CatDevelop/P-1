@@ -5,12 +5,13 @@ import TaskCategoryBadge from "../TaskComponents/TaskCategoryBadge/TaskCategoryB
 import classNames from 'classnames'
 import TaskPriorityBadge from "../TaskComponents/TaskPriorityBadge/TaskPriorityBadge";
 import {Avatar, Tooltip} from "antd";
+import {categories as taskCategories} from '../../core/models/taskEntities'
 const TaskCard = (props) => {
     return (
         <Draggable draggableId={props.id} index={props.index}>
             {(provided) => (
                 <div
-                    className={classNames(s.taskCard)}
+                    className={classNames(s.taskCard, taskCategories[props.task.categoryID].className)}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
