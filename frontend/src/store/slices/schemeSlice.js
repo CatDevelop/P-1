@@ -1,6 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import API from "../../api/API";
 import {getSchemes} from "./schemesSlice";
+import {signInUser} from "./userSlice";
 
 
 export const createScheme = createAsyncThunk(
@@ -76,7 +77,7 @@ export const updateScheme = createAsyncThunk(
                 );
             }
 
-            // response = await response.json();
+            response = await response.json();
 
             // dispatch(setScheme((props)));
             return response;
@@ -133,7 +134,15 @@ const schemeSlice = createSlice({
         }
     },
     extraReducers: {
-
+        [createScheme.rejected]: (state, action) => {
+            throw new Error(`Ошибка создания схема`);
+        },
+        [updateScheme.rejected]: (state, action) => {
+            throw new Error(`Ошибка обновления схема`);
+        },
+        [deleteScheme.rejected]: (state, action) => {
+            throw new Error(`Ошибка удаления схема`);
+        },
     },
 });
 

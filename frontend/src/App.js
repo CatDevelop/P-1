@@ -1,5 +1,5 @@
 import './App.css';
-import {HashRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import WelcomeLayout from "./components/WelcomeLayout";
 import {EditNotePage} from "./pages/Notes/EditNotePage";
 import {AuthorizationPage} from "./pages/Authorization/Authorization";
@@ -19,7 +19,7 @@ import {SettingsPage} from "./pages/SettingsPage";
 function MyApp() {
     return (
         <div className="App">
-            <HashRouter>
+            <BrowserRouter>
                 <Routes>
                     <Route path='/login' element={
                         <RequireUnauth>
@@ -62,7 +62,7 @@ function MyApp() {
 
 
                 </Routes>
-            </HashRouter>
+            </BrowserRouter>
         </div>
     );
 }

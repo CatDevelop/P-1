@@ -1,12 +1,17 @@
-import React, {useCallback, useEffect, useMemo, useRef} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import ReactFlow, {
     addEdge,
     Background,
-    Controls, getConnectedEdges,
+    Controls,
+    getConnectedEdges,
     getIncomers,
-    getOutgoers, MarkerType, Panel, Position, ReactFlowProvider,
+    getOutgoers,
+    MarkerType,
+    Panel,
+    ReactFlowProvider,
     useEdgesState,
-    useNodesState, useReactFlow,
+    useNodesState,
+    useReactFlow,
 } from 'reactflow';
 import styled, {ThemeProvider} from 'styled-components';
 import {darkTheme} from './theme';
@@ -14,23 +19,14 @@ import CustomNode from './Nodes/CustomNode';
 import SquareNode from './Nodes/SquareNode';
 import CircleNode from './Nodes/CircleNode';
 import s from './SchemeEdit.module.css'
-
 import 'reactflow/dist/style.css';
 import {App, FloatButton} from "antd";
 import {SaveOutlined} from "@ant-design/icons";
 import {v4 as uuidv4} from 'uuid';
 import SchemeSideBar from "../SchemeSideBar/SchemeSideBar";
-
 import BiDirEdge from './Edges/BiDirEdge'
 import {useDispatch} from "react-redux";
 import {getScheme, updateScheme} from "../../store/slices/schemeSlice";
-import {HotKeys} from "react-hotkeys";
-
-
-const keyMap = {
-    SAVE: "command+s"
-};
-
 
 const nodeTypes = {
     custom: CustomNode,
@@ -220,9 +216,6 @@ const Flow = ({children, props}) => {
 
     const [nodes, setNodes, onNodesChange] = useNodesState(initialPreparedNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialPreparedEdges);
-    let iiii = 0
-
-    console.log(props.scheme)
 
     const handleSave = () => {
         let saveNodes = [...nodes]
@@ -240,6 +233,8 @@ const Flow = ({children, props}) => {
             .then(() => {
                 message.success({content:'Схема успешно сохранена!', key: "saveScheme"});
                 dispatch(getScheme(props.schemeID))
+            }, () => {
+                message.error({content:'Ошибка обновления схемы!', key: "saveScheme"});
             })
     }
 
@@ -247,7 +242,7 @@ const Flow = ({children, props}) => {
         console.log(e)
         if (e.ctrlKey && e.key === 's') {
             e.preventDefault();
-            handleSave()
+            handleSave(nodes, edges)
             return false;
         }
     }
@@ -255,12 +250,7 @@ const Flow = ({children, props}) => {
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
         return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [])
-
-    // useEffect(() => {
-    //     // ipcRenderer.removeAllListeners('shortcutS')
-    //     // ipcRenderer.on('shortcutS', handleSave)
-    // }, [nodes, edges])
+    }, [nodes, edges])
 
     const onConnect = useCallback((params) => setEdges((eds) => addEdge(
         {
@@ -368,7 +358,6 @@ const Flow = ({children, props}) => {
             ref={reactFlowWrapper}
             connectionMode={"loose"}
         >
-            {/*<MiniMapStyled />*/}
             <ControlsStyled/>
             <Background variant="dots" gap={15} size={1} color={"#4F4F53"}/>
             {children}
@@ -376,7 +365,7 @@ const Flow = ({children, props}) => {
                 <SchemeSideBar/>
             </Panel>
             <FloatButton icon={<SaveOutlined/>} onClick={() => {
-                console.log(saveFlow(nodes, edges), nodes)
+                console.log("TEST SAVE BUTTON", saveFlow(nodes, edges), nodes)
                 handleSave()
             }}/>
         </ReactFlowStyled>

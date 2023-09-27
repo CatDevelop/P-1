@@ -6,6 +6,7 @@ const RequireAuth = ({ children }) => {
     const user = useAuth();
     const navigate = useNavigate()
     if (!user.isAuth) {
+        console.log("NOT AUTH")
         return <Navigate to='/login' />;
     }
 

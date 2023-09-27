@@ -17,15 +17,12 @@ import {removeTasks} from "../store/slices/tasksSlice";
 import showDeleteSchemeModal from "../components/Modals/DeleteSchemeModal"
 
 export const SchemesPage = () => {
-    console.log("RENDER")
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectScheme, setSelectScheme] = useState(null)
     const [contextMenuID, setContextMenuID] = useState(null)
     const dispatch = useDispatch()
     const schemes = useSchemes();
     const users = useUsers();
-    console.log(schemes)
-
 
     const [openCreateSchemeDrawer, setOpenCreateSchemeDrawer] = useState(false);
 
@@ -64,7 +61,7 @@ export const SchemesPage = () => {
                 />
                 <div className={s.schemes}>
                     {
-                        !schemes.isLoading && !users.isLoading ? schemes.schemes.length > 0 ? schemes.schemes.map(scheme => {
+                        !schemes.isLoading && !users.isLoading ? (schemes.schemes.length > 0 ? schemes.schemes.map(scheme => {
                             let date = new Date(scheme.creationDate ?? "2023-06-25 07:09:37");
                             let dateArray = date.toDateString().split(" ")
                             return <SchemeCard id={scheme.id}
@@ -81,7 +78,7 @@ export const SchemesPage = () => {
                                                setContextMenuID={setContextMenuID}
                                                showDeleteSchemeModal={showDeleteSchemeModal}
                             />
-                        }) : <Spin style={{gridColumn: "2"}}/> : <p>Нет схем</p>
+                        }) : <p>Нет схем</p>) : <Spin style={{gridColumn: "2"}}/>
                     }
                 </div>
                 {/*</Transition>*/}

@@ -1,8 +1,7 @@
-import {App, Avatar, Button, Drawer, Form, Input, Select, Space} from "antd";
+import {App, Avatar, Button, Drawer, Form, Input, Space} from "antd";
 import s from "../../pages/Pages.module.css";
 import React, {useEffect} from "react";
 import {useDispatch} from "react-redux";
-import {createNote} from "../../store/slices/noteSlice";
 import {useAuth} from "../../hooks/use-auth";
 import {createScheme} from "../../store/slices/schemeSlice";
 
@@ -40,27 +39,22 @@ export default function CreateSchemeDrawer(props) {
 
         dispatch(createScheme({
             ownerID: payload.createSchemeOwner,
-            //seriesID: props.seriesID,
             schemeName: payload.createSchemeName,
-            //noteTags: JSON.stringify(payload.createNoteTags),
-            //noteImage: payload.createNoteImage
-        })).then(p => {
-            if (p.error) {
-                message.open({
-                    key: 'createScheme',
-                    type: 'error',
-                    content: p.payload,
-                    duration: 2,
-                });
-            } else {
-                message.open({
-                    key: 'createScheme',
-                    type: 'success',
-                    content: 'Схема успешно создана!',
-                    duration: 2,
-                });
-                closeCreateSchemeDrawer()
-            }
+        })).then(() => {
+            message.open({
+                key: 'createScheme',
+                type: 'success',
+                content: 'Схема успешно создана!',
+                duration: 2,
+            });
+            closeCreateSchemeDrawer()
+        }, () => {
+            message.open({
+                key: 'createScheme',
+                type: 'error',
+                content: 'Ошибка создания схемы',
+                duration: 2,
+            });
         })
     }
 
