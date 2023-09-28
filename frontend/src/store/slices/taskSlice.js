@@ -2,6 +2,7 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import API from "../../api/API";
 import {getTasks} from './tasksSlice'
 import {signInUser} from "./userSlice";
+import {getSchemes} from "./schemesSlice";
 
 export const createTask = createAsyncThunk(
     'task/create',
@@ -61,6 +62,32 @@ export const updateTask = createAsyncThunk(
     }
 );
 
+export const deleteTask = createAsyncThunk(
+    'task/delete',
+    async function (id, {rejectWithValue, dispatch}) {
+        try {
+            let response = await fetch(API.DELETE_TASK+"?taskID="+id, {
+                method: 'get'
+            });
+
+            if (!response.ok) {
+                throw new Error(
+                    `${response.status}${
+                        response.statusText ? ' ' + response.statusText : ''
+                    }`
+                );
+            }
+
+            response = await response.json();
+
+            dispatch(getTasks());
+            return response;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    }
+);
+
 const initialState = {
     task: null,
     isLoading: true,
@@ -83,6 +110,11 @@ const taskSlice = createSlice({
         [updateTask.rejected]: (state, action) => {
             throw new Error(
                 `Ошибка изменения задачи`
+            );
+        },
+        [deleteTask.rejected]: (state, action) => {
+            throw new Error(
+                `Ошибка удаления задачи`
             );
         },
     },

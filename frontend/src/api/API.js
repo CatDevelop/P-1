@@ -20,6 +20,7 @@ const UPDATE_NOTE_META = `${HOST}/UpdateNoteMeta.php`;
 const UPDATE_NOTE_OWNER = `${HOST}/UpdateNoteOwner.php`;
 const UPDATE_NOTE_SERIES_META = `${HOST}/UpdateNoteSeriesMeta.php`;
 const DELETE_NOTE = `${HOST}/DeleteNote.php`;
+const DELETE_TASK = `${HOST}/DeleteTask.php`;
 const DELETE_TIME_TRACKING_RECORD = `${HOST}/DeleteTimeTrackingRecord.php`;
 const DELETE_SCHEME = `${HOST}/DeleteScheme.php`;
 const DELETE_NOTE_SERIES = `${HOST}/DeleteNoteSeries.php`;
@@ -33,6 +34,7 @@ const UPDATE_TIME_TRACKING_RECORD = `${HOST}/UpdateTimeTrackingRecord.php`;
 
 
 const API = {
+    DELETE_TASK,
     DELETE_NOTE_FROM_SERIES,
     DELETE_TIME_TRACKING_RECORD,
     UPDATE_TIME_TRACKING_RECORD,

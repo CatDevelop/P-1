@@ -23,7 +23,8 @@ export default function TaskList(props) {
             dispatch(createTask({
                 taskName: taskName,
                 createUserID: user.id,
-                type: "task"
+                type: "task",
+                status: 0
             }))
                 .then(payload => {
                     if (payload.error) {

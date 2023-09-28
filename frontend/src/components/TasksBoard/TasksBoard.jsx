@@ -21,12 +21,20 @@ const TasksBoard = (props) => {
     const completedTasks = boardsData.filter(task => task.status === 3)
 
     const onDragEnd = (result) => {
-        const taskBoards = {
+        const taskBoardsID = {
             "taskBoard0": 0,
             "taskBoard1": 1,
             "taskBoard2": 2,
             "taskBoard3": 3
         }
+
+        const taskBoards = {
+            "taskBoard0": toDoTasks,
+            "taskBoard1": inWorkTasks,
+            "taskBoard2": waitingTasks,
+            "taskBoard3": completedTasks
+        }
+
 
         console.log(result)
         const { destination, source, draggableId} = result;
@@ -44,13 +52,13 @@ const TasksBoard = (props) => {
 
         // Внедрение логики для обновления порядка задач
 
-        console.log("Перемещаю задачу с ID " + draggableId + "\n" + boardsData.filter(task => task.id === draggableId)[0].name + "\nНа доску " +taskBoards[destination.droppableId])
-        let oldStatus = taskBoards[source.droppableId]
-        setBoardsData([...boardsData.filter(task => task.id !== draggableId), {...boardsData.filter(task => task.id === draggableId)[0], status: taskBoards[destination.droppableId]}])
+        console.log("Перемещаю задачу с ID " + draggableId + "\n" + boardsData.filter(task => task.id === draggableId)[0].name + "\nНа доску " +taskBoardsID[destination.droppableId])
+        let oldStatus = taskBoardsID[source.droppableId]
+        setBoardsData([...boardsData.filter(task => task.id !== draggableId), {...boardsData.filter(task => task.id === draggableId)[0], status: taskBoardsID[destination.droppableId]}])
         dispatch(updateTask({
             taskID: draggableId,
             type: "Status",
-            value: taskBoards[destination.droppableId]
+            value: taskBoardsID[destination.droppableId]
         })).then(() => {}, () => {
             setBoardsData([...boardsData.filter(task => task.id !== draggableId), {...boardsData.filter(task => task.id === draggableId)[0], status: oldStatus}])
             message.open({

@@ -18,10 +18,11 @@ import {useTimeTracking} from "../../hooks/use-time-tracking";
 import {createTimeTrackingRecord, getTimeTrackingRecords} from "../../store/slices/timeTrackingSlice";
 import TaskCategoryBadge from "../TaskComponents/TaskCategoryBadge/TaskCategoryBadge";
 import dayjs from "dayjs";
+import showDeleteTaskModal from "../Modals/DeleteTaskModal";
 
 
 export default function TaskDrawer(props) {
-    const {message} = App.useApp();
+    const {message, modal} = App.useApp();
     const dispatch = useDispatch()
     const user = useAuth()
     const users = useUsers()
@@ -602,6 +603,15 @@ export default function TaskDrawer(props) {
             bodyStyle={{paddingBottom: 80}}
             extra={
                 <Space>
+                    <Button icon={<div>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 7L18.1327 19.1425C18.0579 20.1891 17.187 21 16.1378 21H7.86224C6.81296 21 5.94208 20.1891 5.86732 19.1425L5 7M10 11V17M14 11V17M15 7V4C15 3.44772 14.5523 3 14 3H10C9.44772 3 9 3.44772 9 4V7M4 7H20" stroke="#FF4D4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>}  type="text"
+                            onClick={() => {
+                                showDeleteTaskModal(closeTaskDrawer, dispatch, message, modal, props.editTask.id, props.editTask.name)
+                            }}
+                    />
                     {/*<Button disabled={!createNoteSubmittable} type="primary" onClick={() => {*/}
                     {/*    createNoteForm*/}
                     {/*        .validateFields()*/}
@@ -754,6 +764,7 @@ export default function TaskDrawer(props) {
 
 
             </div>
+
         </Drawer>
     )
 }

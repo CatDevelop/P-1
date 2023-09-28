@@ -170,7 +170,8 @@ export const TasksPage = () => {
         return filteredTasks
     }
 
-    let filteredTasks = filterTasks(sortTasks([...tasks.tasks], sortList), filters);
+    let filteredAndSortedTasks = filterTasks(sortTasks([...tasks.tasks], sortList), filters);
+    let filteredTasks = filterTasks([...tasks.tasks], filters);
 
     console.log(filters)
     return (
@@ -509,12 +510,12 @@ export const TasksPage = () => {
 
                             {
                                 viewMode === "list" ?
-                                    <TaskList tasks={filteredTasks}
+                                    <TaskList tasks={filteredAndSortedTasks}
                                               users={users}
                                               setEditTask={setEditTask}
                                               setOpenTaskDrawer={setOpenTaskDrawer}
                                     /> :
-                                    <TasksBoard tasks={filteredTasks}
+                                    <TasksBoard tasks={filteredAndSortedTasks}
                                                 users={users}
                                                 setEditTask={setEditTask}
                                                 setOpenTaskDrawer={setOpenTaskDrawer}

@@ -2,8 +2,39 @@ import React, {useState} from 'react';
 import TaskCard from './TaskCard';
 import {Droppable} from "react-beautiful-dnd";
 import s from './TasksBoard.module.css'
-import {Button} from "antd";
+import {App, Button} from "antd";
+import {createTask} from "../../store/slices/taskSlice";
+import {useDispatch} from "react-redux";
+import {useAuth} from "../../hooks/use-auth";
+
 const TasksColumn = (props) => {
+    const {message, modal} = App.useApp();
+    const dispatch = useDispatch()
+    const user = useAuth()
+    const handleCreateTask = (status) => {
+        message.open({
+            key: 'createTask', type: 'loading', content: 'Создаю задачу...'
+        });
+
+        dispatch(createTask({
+            taskName: "",
+            createUserID: user.id,
+            type: "task",
+            status: status
+        }))
+            .then(payload => {
+                if (payload.error) {
+                    message.open({
+                        key: 'createTask', type: 'error', content: payload.payload, duration: 2,
+                    });
+                } else {
+                    message.open({
+                        key: 'createTask', type: 'success', content: 'Задача успешно создана!', duration: 2,
+                    });
+                }
+            })
+    }
+
     let statusIcon;
     if (props.id === 0)
         statusIcon = <div style={{display: "flex", justifyContent: "center"}}>
@@ -54,34 +85,39 @@ const TasksColumn = (props) => {
                 </div>
 
 
-
-                <Droppable droppableId={"taskBoard"+props.id} isCombineEnabled>
+                <Droppable droppableId={"taskBoard" + props.id} isCombineEnabled>
                     {(provided) => (
                         <div
                             className={s.tasksColumnList}
                             ref={provided.innerRef}
                             {...provided.droppableProps}
                         >
-                            {props.tasks.map((task, i) => <TaskCard key={'taskCard'+task.id}
-                                                            id={task.id}
-                                                            index={i}
-                                                            task={task}
-                                                            users={props.users}
-                                                            setEditTask={props.setEditTask}
-                                                            setOpenTaskDrawer={props.setOpenTaskDrawer}
-                                />)}
+                            {props.tasks.map((task, i) => <TaskCard key={'taskCard' + task.id}
+                                                                    id={task.id}
+                                                                    index={i}
+                                                                    task={task}
+                                                                    users={props.users}
+                                                                    setEditTask={props.setEditTask}
+                                                                    setOpenTaskDrawer={props.setOpenTaskDrawer}
+                            />)}
                             {provided.placeholder}
                         </div>
                     )}
                 </Droppable>
             </div>
 
-            <Button className={s.taskColumnAddTaskButton} type="text">
+            <div className={s.taskColumn__AddTaskButtonContainer}>
+                <Button className={s.taskColumnAddTaskButton} type="text" onClick={() => {
+                    handleCreateTask(props.id)
+                }}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 4V20M20 12L4 12" stroke="white" strokeOpacity="0.85" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 4V20M20 12L4 12" stroke="white" strokeOpacity="0.85" strokeWidth="2"
+                              strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     Добавить задачу
-            </Button>
+                </Button>
+            </div>
+
         </div>
     );
 };
