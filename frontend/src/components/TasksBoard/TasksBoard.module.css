@@ -1,9 +1,10 @@
 .tasksBoard {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     gap: 10px;
-
+    box-sizing: border-box;
+    flex: 1 1 auto;
 }
 
 .tasksColumnContainer {
@@ -13,19 +14,28 @@
     background: #202023;
     border-radius: 10px;
     padding: 10px;
-    min-height: 200px;
+    width: 100%;
+    position: relative;
 }
 
 .tasksColumn {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /*height: 100%;*/
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 52px;
 }
 
 .tasksColumnTitleContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
+    flex: 0 1 auto;
 }
 
 .tasksColumnTitle {
@@ -39,11 +49,13 @@
 
 .tasksColumnList {
     display: flex;
-    min-height: 170px;
+    /*min-height: 170px;*/
     flex-direction: column;
     overflow-y: auto;
-    max-height: 67vh;
+    /*max-height: 67vh;*/
     border-radius: 10px;
+    /*height: 100%;*/
+    flex: 1 1 auto;
 }
 
 
@@ -76,13 +88,16 @@
 }
 
 .taskColumn__AddTaskButtonContainer {
-
     margin-top: 10px;
     display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
 }
 
 .taskColumnAddTaskButton {

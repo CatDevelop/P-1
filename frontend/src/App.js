@@ -7,7 +7,7 @@ import RequireUnauth from "./hoc/RequireUnauth";
 import RequireAuth from "./hoc/RequireAuth";
 import {NotePage} from "./pages/Notes/NotePage";
 import {HomePage} from "./pages/HomePage";
-import {TasksPage} from "./pages/TasksPage";
+import {TasksPage} from "./pages/Tasks/TasksPage";
 import {SchemesPage} from "./pages/SchemesPage";
 import {NotesPage} from "./pages/NotesPage";
 import {SchemeEditPage} from "./pages/SchemeEditPage";

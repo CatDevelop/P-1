@@ -1,0 +1,94 @@
+@keyframes showDown {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes showLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes showRight {
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes showFade {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+
+.mainContainer{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    gap: 30px;
+    /*padding: 20px;*/
+    /*margin: 20px;*/
+    padding: 20px 70px;
+    margin-left: 60px;
+    height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 22px 70px 1fr;
+}
+
+.workContainer {
+    min-width: 600px !important;
+    width: 100%;
+}
+
+.noteTitleContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.noteTitle {
+    max-width: 1000px !important;
+    min-width: 600px !important;
+    width: 100%;
+}
+
+.pageTitle {
+    font-family: SFPro, serif;
+    font-weight: 600;
+    font-size: 32px;
+    width: 100%;
+}
+
+.tasksPageHeaderPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 75vw;
+    width: 100%;
+}
