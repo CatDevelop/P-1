@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta property="og:image" content="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
+    <meta property="og:image" content="%PUBLIC_URL%/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
     <meta
-      name="description"
-      content="Система управления проектами Pi-1. Все инструменты - теперь в одном приложении"
+            name="description"
+            content="Система управления проектами Pi-1. Все инструменты - теперь в одном приложении"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png"/>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
 
     <title>P-1</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+</head>
+    <body>
+        <script src="https://vk.com/js/api/openapi.js?158"></script>
+        <script>
+            VK.init({
+                apiId: 51771611, <!-- ваш номер -->
+            });
+        </script>
+        <div id="root"></div>
+    </body>
 </html>

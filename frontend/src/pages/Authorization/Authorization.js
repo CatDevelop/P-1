@@ -40,7 +40,19 @@ export const AuthorizationPage = () => {
                     <div className={s.inner}>
                         <div className={classes.content}>
                             <AuthorizationForm/>
-                            <VkAuth apiId="51771611" callback={handleVkResponse} />
+                            <button onClick={()=> {
+                                VK.Auth.login((r) => {
+                                    if (r.session) {
+                                        let username = r.session.user.first_name;
+                                        console.log("LOGIN_SUCCESS", username)
+                                    } else {
+                                        console.log("LOGIN_FAIL", username)
+                                    }
+                                }, 4);
+                            }}>
+                                test
+                            </button>
+                            {/*<VkAuth apiId="51771611" callback={handleVkResponse} />*/}
                         </div>
                         <img style={{flex: "1", width: "500px"}} src={image} alt={""}/>
                     </div>
