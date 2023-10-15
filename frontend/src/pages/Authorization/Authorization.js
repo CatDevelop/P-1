@@ -6,6 +6,7 @@ import {removeSchemes} from "../../store/slices/schemesSlice";
 import {useDispatch} from "react-redux";
 import {removeTasks} from "../../store/slices/tasksSlice";
 import AuthorizationForm from "../../components/AuthorizationForm/AuthorizationForm";
+import VkAuth from 'react-vk-auth';
 
 const useStyles = createStyles((theme) => ({
     content: {
@@ -22,10 +23,16 @@ const useStyles = createStyles((theme) => ({
 export const AuthorizationPage = () => {
     const {classes} = useStyles();
     const dispatch = useDispatch()
+
+    const handleVkResponse = (data) => {
+        console.warn(data)
+    }
+
     useEffect(() => {
         dispatch(removeSchemes())
         dispatch(removeTasks())
     }, [])
+
     return (
         <div>
             <div className={s.mainContainer}>
@@ -33,6 +40,7 @@ export const AuthorizationPage = () => {
                     <div className={s.inner}>
                         <div className={classes.content}>
                             <AuthorizationForm/>
+                            <VkAuth apiId="51771611" callback={handleVkResponse} />
                         </div>
                         <img style={{flex: "1", width: "500px"}} src={image} alt={""}/>
                     </div>

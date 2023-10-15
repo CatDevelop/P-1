@@ -27,6 +27,7 @@ import SchemeSideBar from "../SchemeSideBar/SchemeSideBar";
 import BiDirEdge from './Edges/BiDirEdge'
 import {useDispatch} from "react-redux";
 import {getScheme, updateScheme} from "../../store/slices/schemeSlice";
+import {SchemeName} from "../Schemes/SchemeEditor/SchemeName/SchemeName";
 
 const nodeTypes = {
     custom: CustomNode,
@@ -231,10 +232,10 @@ const Flow = ({children, props}) => {
         message.loading({content: 'Схема сохраняется на сервер...', key: "saveScheme"});
         dispatch(updateScheme({scheme: JSON.stringify({nodes: saveNodes, edges: saveEdges}), schemeID: props.schemeID}))
             .then(() => {
-                message.success({content:'Схема успешно сохранена!', key: "saveScheme"});
+                message.success({content: 'Схема успешно сохранена!', key: "saveScheme"});
                 dispatch(getScheme(props.schemeID))
             }, () => {
-                message.error({content:'Ошибка обновления схемы!', key: "saveScheme"});
+                message.error({content: 'Ошибка обновления схемы!', key: "saveScheme"});
             })
     }
 
@@ -358,11 +359,14 @@ const Flow = ({children, props}) => {
             ref={reactFlowWrapper}
             connectionMode={"loose"}
         >
-            <ControlsStyled/>
+            {/*<ControlsStyled/>*/}
             <Background variant="dots" gap={15} size={1} color={"#4F4F53"}/>
             {children}
             <Panel position={"top-right"}>
                 <SchemeSideBar/>
+            </Panel>
+            <Panel position={"top-left"}>
+                <SchemeName title={props.title}/>
             </Panel>
             <FloatButton icon={<SaveOutlined/>} onClick={() => {
                 console.log("TEST SAVE BUTTON", saveFlow(nodes, edges), nodes)

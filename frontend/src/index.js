@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import './variables.css';
+import './themes/variables.css';
 import MyApp from './App';
 import {App, ConfigProvider, theme} from "antd";
 import {Provider} from "react-redux";

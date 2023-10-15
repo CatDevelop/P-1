@@ -1,15 +1,13 @@
-import s from "./Pages.module.css";
-import FirstMenu from "../components/Menu/Menu";
+import styles from "./SchemeEdit.module.css";
+import FirstMenu from "../../components/Menu/Menu";
 import React, {useEffect, useState} from "react";
-import SchemeCard from "../components/SchemeCard/SchemeCard";
-import {Modal, Spin} from "antd";
-import SchemePreview from "../components/SchemePreview/SchemePreview";
-import SchemeEdit from "../components/SchemeEdit/SchemeEdit";
+import {Spin} from "antd";
+import SchemeEdit from "../../components/SchemeEdit/SchemeEdit";
 import {useDispatch} from "react-redux";
-import {getScheme} from "../store/slices/schemeSlice";
+import {getScheme} from "../../store/slices/schemeSlice";
 import {useParams} from "react-router-dom";
-import {useScheme} from "../hooks/use-scheme";
-import {removeSchemes} from "../store/slices/schemesSlice";
+import {useScheme} from "../../hooks/use-scheme";
+import {removeSchemes} from "../../store/slices/schemesSlice";
 
 export const SchemeEditPage = () => {
     const {schemeID} = useParams()
@@ -30,17 +28,17 @@ export const SchemeEditPage = () => {
     };
 
 
-
-
     return (
         <div>
-            <div className={s.mainContainer}>
+            <div className={styles.mainContainer}>
                 <FirstMenu selectedKeys={[]}/>
                 {
                     scheme.isLoading ?
                         <Spin/> : <>
-                            <div className={s.pageTitle}>{scheme.scheme.title}</div>
-                            <SchemeEdit schemeID={schemeID} scheme={JSON.parse(scheme.scheme.scheme)}/>
+                            {/*<div className={styles.pageTitle}>{scheme.scheme.title}</div>*/}
+                            <SchemeEdit schemeID={schemeID}
+                                        title={scheme.scheme.title}
+                                        scheme={JSON.parse(scheme.scheme.scheme)}/>
                         </>
                 }
             </div>

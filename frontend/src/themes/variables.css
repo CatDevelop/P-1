@@ -11,4 +11,13 @@
     --color-white-300: #C2C2C2;
     --color-white-400: #BCBBBB;
     --color-white-500: #FFFFFF;
+
+    /* Border Radius */
+    --border-radius-s: 10px;
+    --border-radius-m: 15px;
+    --border-radius-l: 20px;
+    --border-radius-xl: 30px;
+
+    /* Fonts */
+    --main-font: SFPro, serif;
 }

@@ -1,0 +1,31 @@
+.schemeName {
+    padding: 10px 20px;
+    background: var(--color-gray-300);
+    border-radius: var(--border-radius-s);
+    border: 1px var(--color-gray-100) solid;
+
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    flex-direction: column;
+    gap: 0px;
+}
+
+.schemeName__title {
+    font-family: var(--main-font);
+    font-size: 18px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.schemeName__title_undefined {
+    color: var(--color-white-300)
+}
+
+.schemeName__lastChange {
+    font-family: var(--main-font);
+    font-size: 12px;
+    color: var(--color-white-100);
+    margin: 0;
+    padding: 0;
+}
