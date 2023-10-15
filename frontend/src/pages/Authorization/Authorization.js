@@ -6,7 +6,7 @@ import {removeSchemes} from "../../store/slices/schemesSlice";
 import {useDispatch} from "react-redux";
 import {removeTasks} from "../../store/slices/tasksSlice";
 import AuthorizationForm from "../../components/AuthorizationForm/AuthorizationForm";
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
     content: {
@@ -23,7 +23,8 @@ const useStyles = createStyles((theme) => ({
 export const AuthorizationPage = () => {
     const {classes} = useStyles();
     const dispatch = useDispatch()
-    const {code} = useParams()
+    const search = useLocation().search;
+    const code = new URLSearchParams(search).get('code');
     console.log(code)
 
     useEffect(() => {
