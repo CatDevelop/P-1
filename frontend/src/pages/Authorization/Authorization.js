@@ -6,6 +6,7 @@ import {removeSchemes} from "../../store/slices/schemesSlice";
 import {useDispatch} from "react-redux";
 import {removeTasks} from "../../store/slices/tasksSlice";
 import AuthorizationForm from "../../components/AuthorizationForm/AuthorizationForm";
+import {Link, useParams} from "react-router-dom";
 
 const useStyles = createStyles((theme) => ({
     content: {
@@ -22,6 +23,8 @@ const useStyles = createStyles((theme) => ({
 export const AuthorizationPage = () => {
     const {classes} = useStyles();
     const dispatch = useDispatch()
+    const {code} = useParams()
+    console.log(code)
 
     useEffect(() => {
         dispatch(removeSchemes())
@@ -35,6 +38,11 @@ export const AuthorizationPage = () => {
                     <div className={s.inner}>
                         <div className={classes.content}>
                             <AuthorizationForm/>
+                            <Link to="https://oauth.vk.com/authorize?client_id=51771611&display=popup&redirect_uri=https://pi-1.ru/login&scope=friends&response_type=code&v=5.154" target="_blank" rel="noopener noreferrer">
+                                <button>
+                                    ВК
+                                </button>
+                            </Link>
                         </div>
                         <img style={{flex: "1", width: "500px"}} src={image} alt={""}/>
                     </div>
