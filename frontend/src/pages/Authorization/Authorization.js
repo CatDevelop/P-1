@@ -6,7 +6,7 @@ import {removeSchemes} from "../../store/slices/schemesSlice";
 import {useDispatch} from "react-redux";
 import {removeTasks} from "../../store/slices/tasksSlice";
 import AuthorizationForm from "../../components/AuthorizationForm/AuthorizationForm";
-import VkAuth from 'react-vk-auth';
+import VK, {Auth} from 'react-vk';
 
 const useStyles = createStyles((theme) => ({
     content: {
@@ -40,19 +40,13 @@ export const AuthorizationPage = () => {
                     <div className={s.inner}>
                         <div className={classes.content}>
                             <AuthorizationForm/>
-                            <button onClick={()=> {
-                                VK.Auth.login((r) => {
-                                    if (r.session) {
-                                        let username = r.session.user.first_name;
-                                        console.log("LOGIN_SUCCESS", username)
-                                    } else {
-                                        console.log("LOGIN_FAIL", username)
-                                    }
-                                }, 4);
-                            }}>
-                                test
-                            </button>
-                            {/*<VkAuth apiId="51771611" callback={handleVkResponse} />*/}
+                            <VK apiId={51771611 }>
+                                <Auth options={{
+                                    onAuth: user => {
+                                        console.log(user);
+                                    },
+                                }}/>
+                            </VK>
                         </div>
                         <img style={{flex: "1", width: "500px"}} src={image} alt={""}/>
                     </div>
