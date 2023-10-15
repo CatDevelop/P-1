@@ -32,6 +32,22 @@ export const AuthorizationPage = () => {
         dispatch(removeTasks())
     }, [])
 
+    const handleButtonClick = () => {
+        const newWindow = window.open('https://oauth.vk.com/authorize?client_id=51771611&display=popup&redirect_uri=https://pi-1.ru/login&scope=friends&response_type=code&v=5.154', 'childWindow');
+
+        const timer = setInterval(() => {
+            if (newWindow.closed) {
+                clearInterval(timer);
+                return;
+            }
+
+            if (newWindow.window) {
+                clearInterval(timer);
+                newWindow.window.addEventListener('load', this.handleChildWindowLoaded);
+            }
+        }, 1000);
+    };
+
     return (
         <div>
             <div className={s.mainContainer}>
@@ -39,11 +55,9 @@ export const AuthorizationPage = () => {
                     <div className={s.inner}>
                         <div className={classes.content}>
                             <AuthorizationForm/>
-                            <Link to="https://oauth.vk.com/authorize?client_id=51771611&display=popup&redirect_uri=https://pi-1.ru/login&scope=friends&response_type=code&v=5.154" target="_blank" rel="noopener noreferrer">
-                                <button>
-                                    ВК
-                                </button>
-                            </Link>
+                            <button onClick={handleButtonClick}>
+                                ВК
+                            </button>
                         </div>
                         <img style={{flex: "1", width: "500px"}} src={image} alt={""}/>
                     </div>
