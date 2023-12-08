@@ -1,4 +1,5 @@
 import categoriesStyles from './categories.module.css'
+
 export const categories = [
     {
         id: 0,

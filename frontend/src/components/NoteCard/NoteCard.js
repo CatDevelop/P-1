@@ -91,8 +91,8 @@ function NoteCard(props) {
                           borderRadius: "8px 8px 0 0",
                           width: "300px",
                           height: "180px",
-                          backgroundSize: 'contain !important',
                           background: "url(" + props.image + ") no-repeat center center",
+                          backgroundSize: 'cover',
                       }}
                       />
                   }

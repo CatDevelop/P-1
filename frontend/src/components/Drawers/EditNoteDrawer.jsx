@@ -196,7 +196,7 @@ export default function EditNoteDrawer(props) {
                                         width: "300px",
                                         height: "180px",
                                         background: "url(" + editNoteImage + ") no-repeat center center",
-                                        backgroundSize: "cover !important"
+                                        backgroundSize: "cover"
                                     }
                                 }
                                 alt="example"

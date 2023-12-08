@@ -1,12 +1,13 @@
 .sideBar {
+    padding: 10px 20px;
+    background: var(--color-gray-300);
+    border-radius: var(--border-radius-s);
+    border: 1px var(--color-gray-100) solid;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    background-color: #4F4F53;
-    border-radius: 15px;
-    border: 2px solid white;
-    padding: 10px;
 }
 
 .description {
@@ -18,8 +19,8 @@
 
 .squareNode {
     cursor: move;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     box-sizing: border-box;
 
     background-color: #343435;
