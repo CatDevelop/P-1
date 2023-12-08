@@ -169,8 +169,7 @@ export default function EditNoteSeriesDrawer(props) {
                                         borderRadius: "8px",
                                         width: "300px",
                                         height: "180px",
-                                        background: "url(" + editNoteSeriesImage + ") no-repeat center center",
-                                        backgroundSize: "cover !important"
+                                        background: "url(" + editNoteSeriesImage + ") center center / cover no-repeat"
                                     }
                                 }
                             />
