@@ -63,3 +63,8 @@
     align-items: center;
     height: 90vh;
 }
+
+.container {
+    max-height: 600px;
+    height: 100%;
+}

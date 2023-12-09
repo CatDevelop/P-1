@@ -4,11 +4,15 @@ import {signInUser} from '../../store/slices/userSlice';
 import {useDispatch} from "react-redux";
 import md5 from 'md5';
 import {App, Button, Form, Input} from 'antd';
+import VkAuthButton from "../VkAuthButton/VkAuthButton";
 
 function AuthorizationForm(props) {
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const {message} = App.useApp();
+
+    // if(props.code)
+    //     console.log("Получить access", code)
 
     const onSubmit = (payload) => {
         if (!isLoading) {
@@ -37,6 +41,14 @@ function AuthorizationForm(props) {
         <div>
             <p className={s.authorizationForm__header}>Добро пожаловать в базу знаний команды ПИН-КОД</p>
             <div className={s.authorizationForm__formContainer}>
+                {/*{*/}
+                {/*    !props.code ?*/}
+                {/*    <VkAuthButton/> :*/}
+                {/*        <div>*/}
+                {/*            Вхожу в аккаунт*/}
+                {/*        </div>*/}
+                {/*}*/}
+
                 <Form name="authorization"
                       style={{width: 300}}
                       onFinish={onSubmit}
@@ -69,7 +81,6 @@ function AuthorizationForm(props) {
                 </Form>
             </div>
         </div>
-
     )
 }
 

@@ -1,12 +1,12 @@
 import s from "./Tasks.module.css";
-import FirstMenu from "../../components/Menu/Menu";
+import FirstMenu from "../../../../components/Menu/Menu";
 import React, {useEffect, useState} from "react";
 import {Breadcrumb, Button, Col, Dropdown, Row, Segmented, Select, Space, Spin} from "antd";
 import {useDispatch} from "react-redux";
-import {getUsers} from "../../store/slices/usersSlice";
-import {getTasks} from "../../store/slices/tasksSlice";
-import {useUsers} from "../../hooks/use-users";
-import TaskList from "../../components/TasksList/TaskList";
+import {getUsers} from "../../../../store/slices/usersSlice";
+import {getTasks} from "../../../../store/slices/tasksSlice";
+import {useUsers} from "../../../../hooks/use-users";
+import TaskList from "../../../../components/TasksList/TaskList";
 import {useListState} from '@mantine/hooks';
 import {PlusOutlined} from "@ant-design/icons";
 import _ from 'lodash'
@@ -15,14 +15,14 @@ import {
     TaskInWorkStatusIcon,
     TaskPlannedStatusIcon,
     TaskWaitingStatusIcon
-} from "../../components/Icons/Icons";
-import SelectSort from "../../components/SelectSort/SelectSort";
-import TaskDrawer from "../../components/Drawers/TaskDrawer";
-import {useTasks} from "../../hooks/use-tasks";
-import {removeSchemes} from "../../store/slices/schemesSlice";
-import {removeNotes} from "../../store/slices/notesSlice";
-import {removeNote} from "../../store/slices/noteSlice";
-import TasksBoard from "../../components/TasksBoard/TasksBoard";
+} from "../../../../components/Icons/Icons";
+import SelectSort from "../../../../components/SelectSort/SelectSort";
+import TaskDrawer from "../../../../components/Drawers/TaskDrawer";
+import {useTasks} from "../../../../hooks/use-tasks";
+import {removeSchemes} from "../../../../store/slices/schemesSlice";
+import {removeNotes} from "../../../../store/slices/notesSlice";
+import {removeNote} from "../../../../store/slices/noteSlice";
+import TasksBoard from "../../../../components/TasksBoard/TasksBoard";
 
 const {Option} = Select;
 export const TasksPage = () => {
