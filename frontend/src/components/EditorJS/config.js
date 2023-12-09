@@ -222,14 +222,14 @@ export const EDITOR_JS_TOOLS = {
         },
         shortcut: 'CMD+SHIFT+I',
     },
-    code: {
-        class: Code,
-        // class: MyCodeEditor,
-        config: {
-            title: "Код"
-        },
-        shortcut: 'CMD+SHIFT+C',
-    },
+    // code: {
+    //     class: Code,
+    //     // class: MyCodeEditor,
+    //     config: {
+    //         title: "Код"
+    //     },
+    //     shortcut: 'CMD+SHIFT+C',
+    // },
     myCode: {
         class: MyCodeEditor,
         config: {
