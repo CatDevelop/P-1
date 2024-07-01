@@ -4,7 +4,6 @@ import {signInUser} from '../../store/slices/userSlice';
 import {useDispatch} from "react-redux";
 import md5 from 'md5';
 import {App, Button, Form, Input} from 'antd';
-import VkAuthButton from "../VkAuthButton/VkAuthButton";
 
 function AuthorizationForm(props) {
     const dispatch = useDispatch();
