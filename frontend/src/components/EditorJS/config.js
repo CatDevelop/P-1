@@ -46,17 +46,11 @@ export const i18n = {
             "Raw HTML": "HTML-фрагмент",
             "Table": "Таблица",
             "Attachment": "Файл",
-            // "InlineImage": "Изображение по ссылке",
             MathTex: "Математика",
             "mermaid": "Mermaid",
             "Alert": "Предупреждение",
             "Scheme": "Схема",
             "MyCode": "Код"
-            // "Link": "Ссылка",
-            // "Marker": "Маркер",
-            // "Bold": "Полужирный",
-            // "Italic": "Курсив",
-            // "InlineCode": "Моноширинный",
         },
         tools: {
             "Warning": { // <-- 'Warning' tool will accept this dictionary section
