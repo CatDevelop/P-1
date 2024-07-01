@@ -6,8 +6,6 @@ import {removeSchemes} from "../../store/slices/schemesSlice";
 import {useDispatch} from "react-redux";
 import {removeTasks} from "../../store/slices/tasksSlice";
 import AuthorizationForm from "../../components/AuthorizationForm/AuthorizationForm";
-import {Link, useLocation, useParams} from "react-router-dom";
-import VkAuthButton from "../../components/VkAuthButton/VkAuthButton";
 import classNames from "classnames";
 
 const useStyles = createStyles((theme) => ({
