@@ -2,7 +2,7 @@ import styles from "./SchemeEdit.module.css";
 import FirstMenu from "../../components/Menu/Menu";
 import React, {useEffect, useState} from "react";
 import {Spin} from "antd";
-import SchemeEdit from "../../components/SchemeEdit/SchemeEdit";
+import SchemeEdit from "../../components/SchemeEdit2/SchemeEdit";
 import {useDispatch} from "react-redux";
 import {getScheme} from "../../store/slices/schemeSlice";
 import {useParams} from "react-router-dom";

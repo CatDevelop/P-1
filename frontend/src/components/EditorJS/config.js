@@ -23,6 +23,8 @@ import InlineCode from "@editorjs/inline-code";
 import AnyButton from "editorjs-button";
 import Scheme from "./plugins/Scheme/Scheme"
 import MyCodeEditor from "./plugins/Code/Code";
+import editorjsColumns from '@calumk/editorjs-columns'
+import EditorJs from '@editorjs/editorjs'
 
 export const i18n = {
     messages: {
@@ -109,7 +111,104 @@ export const i18n = {
     }
 }
 
-export const EDITOR_JS_TOOLS = {
+const column_tools = {
+    textVariant: TextVariantTune,
+    underline: {
+        class: Underline,
+        shortcut: 'CMD+U',
+    },
+    strikethrough: {
+        class: Strikethrough,
+        shortcut: 'CMD+T',
+    },
+    math: {
+        class: MathTex, // for CDN: window.MathTex
+        config: {
+            title: "Math"
+        },
+        shortcut: 'CMD+SHIFT+F',
+    },
+    changeCase: {
+        class: ChangeCase,
+        config: {
+            showLocaleOption: true, // enable locale case options
+            locale: 'tr' // or ['tr', 'TR', 'tr-TR']
+        }
+    },
+    youtubeEmbed:{
+        class:YoutubeEmbed,
+        shortcut: 'CMD+SHIFT+Y',
+    },
+    subscript: {
+        class: Subscript,
+        shortcut: 'CMD+G',
+    },
+    telegram: Telegram,
+    scheme: {
+        class: Scheme,
+        shortcut: 'CMD+SHIFT+S',
+    },
+    // mermaid: {
+    //     class: MermaidTool,
+    //     config: {
+    //         title: "Mermaid"
+    //     },
+    //     shortcut: 'CMD+SHIFT+M',
+    // },
+    // gist: {
+    //     class: Gist,
+    //     shortcut: 'CMD+SHIFT+G',
+    // },
+    list: {
+        class: List,
+        inlineToolbar: true,
+        shortcut: 'CMD+SHIFT+L',
+    },
+    header: {
+        class: Header,
+        inlineToolbar: true,
+        tunes: ['anyTuneName'],
+        shortcut: 'CMD+SHIFT+H',
+    },
+    alert: {
+        class: Alert,
+        shortcut: 'CMD+SHIFT+V',
+        config: {
+            defaultType: 'primary',
+            messagePlaceholder: 'Ваше сообщение...',
+        },
+    },
+    paragraph: {
+        class: Paragraph,
+        inlineToolbar: true,
+        config: {
+            preserveBlank: true
+        },
+        tunes: ['anyTuneName'],
+    },
+    anyTuneName: {
+        class: AlignmentTuneTool,
+        config: {
+            default: "left",
+            blocks: {
+                header: 'center',
+                list: 'left'
+            }
+        },
+    },
+}
+
+export const EDITOR_JS_TOOLS = (EditorJs) => ({
+    columns : {
+        class : editorjsColumns,
+        config : {
+            EditorJsLibrary : EditorJs, // Pass the library instance to the columns instance.
+            tools : column_tools // IMPORTANT! ref the column_tools
+        }
+    },
+
+
+
     table: {
         class: Table,
         inlineToolbar: true,
@@ -277,5 +376,5 @@ export const EDITOR_JS_TOOLS = {
     //         }
     //     }
     // }
-}
+})
 

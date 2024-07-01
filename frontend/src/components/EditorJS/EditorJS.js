@@ -8,6 +8,7 @@ import {useDispatch} from "react-redux";
 import {EDITOR_JS_TOOLS, i18n} from "./config";
 import {updateNote} from "../../store/slices/noteSlice";
 import {useNavigate} from "react-router-dom";
+import EditorJs from "@editorjs/editorjs";
 
 
 function EditorJS(props) {
@@ -62,7 +63,7 @@ function EditorJS(props) {
 
     return <div className={s.editor}>
         <ReactEditorJS defaultValue={props.notes}
-                       tools={EDITOR_JS_TOOLS}
+                       tools={EDITOR_JS_TOOLS(EditorJs)}
                        placeholder={"Нажмите + или Tab, чтобы выбрать блок"}
                        i18n={i18n}
                        autofocus={true}

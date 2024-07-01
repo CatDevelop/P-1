@@ -1,5 +1,4 @@
 import {useSelector} from 'react-redux';
-import {LockOutlined} from "@ant-design/icons";
 
 export function useTasks() {
   // const localNotes = useSelector((state) => state.localNotes);
