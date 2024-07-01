@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
     noteBlocks: null,
@@ -14,9 +14,7 @@ const localNotesSlice = createSlice({
             state.isLoading = false
         }
     },
-    extraReducers: {
-
-    },
+    extraReducers: {},
 });
 
 export const {setLocalNotes} = localNotesSlice.actions;

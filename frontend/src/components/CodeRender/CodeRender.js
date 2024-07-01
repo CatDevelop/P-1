@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import s from './CodeRender.module.css'
-import {ConfigProvider, message, Form, Input, Segmented, Select, Space, theme, Button, Tabs, Menu} from 'antd';
-import CodeMirror from '@uiw/react-codemirror';
-import {langs} from '@uiw/codemirror-extensions-langs';
-import {vscodeDark} from '@uiw/codemirror-theme-vscode';
-import {autocompletion} from '@codemirror/autocomplete';
+import {Tabs} from 'antd';
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
 import {oneDark} from "react-syntax-highlighter/dist/cjs/styles/prism";
 import "./TabMenu.css"

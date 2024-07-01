@@ -1,4 +1,4 @@
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setUser} from '../store/slices/userSlice';
 
 export function useAuth() {

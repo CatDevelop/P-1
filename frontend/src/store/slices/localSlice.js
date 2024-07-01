@@ -1,4 +1,4 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
     theme: 'dark',
@@ -24,7 +24,7 @@ const localSlice = createSlice({
     initialState: initialState,
     reducers: {
         setTheme(state) {
-            if(state.theme === "dark")
+            if (state.theme === "dark")
                 state.theme = 'light'
             else
                 state.theme = 'dark'
@@ -58,11 +58,20 @@ const localSlice = createSlice({
             state.isConnectToServer = action.payload.isConnectToServer
         }
     },
-    extraReducers: {
-
-    },
+    extraReducers: {},
 });
 
-export const {setFilesFolderDir, setSelection, setConnectToServer, setFilesDir, setSelectElement, setSelectFolderKey, setTheme, setDirectories, setSelectFolderPath, setSelectFilePath} = localSlice.actions;
+export const {
+    setFilesFolderDir,
+    setSelection,
+    setConnectToServer,
+    setFilesDir,
+    setSelectElement,
+    setSelectFolderKey,
+    setTheme,
+    setDirectories,
+    setSelectFolderPath,
+    setSelectFilePath
+} = localSlice.actions;
 
 export default localSlice.reducer;
