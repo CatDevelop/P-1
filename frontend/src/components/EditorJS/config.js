@@ -14,7 +14,6 @@ import Paragraph from "@editorjs/paragraph";
 import AlignmentTuneTool from "editorjs-text-alignment-blocktune";
 import Warning from "@editorjs/warning";
 import InlineImage from "editorjs-inline-image";
-import Code from "@elicodes/codex-code-plugin";
 import Quote from "@editorjs/quote";
 import Marker from "@editorjs/marker";
 import CheckList from "@editorjs/checklist";
@@ -24,7 +23,6 @@ import AnyButton from "editorjs-button";
 import Scheme from "./plugins/Scheme/Scheme"
 import MyCodeEditor from "./plugins/Code/Code";
 import editorjsColumns from '@calumk/editorjs-columns'
-import EditorJs from '@editorjs/editorjs'
 
 export const i18n = {
     messages: {
@@ -135,8 +133,8 @@ const column_tools = {
             locale: 'tr' // or ['tr', 'TR', 'tr-TR']
         }
     },
-    youtubeEmbed:{
-        class:YoutubeEmbed,
+    youtubeEmbed: {
+        class: YoutubeEmbed,
         shortcut: 'CMD+SHIFT+Y',
     },
     subscript: {
@@ -199,14 +197,13 @@ const column_tools = {
 }
 
 export const EDITOR_JS_TOOLS = (EditorJs) => ({
-    columns : {
-        class : editorjsColumns,
-        config : {
-            EditorJsLibrary : EditorJs, // Pass the library instance to the columns instance.
-            tools : column_tools // IMPORTANT! ref the column_tools
+    columns: {
+        class: editorjsColumns,
+        config: {
+            EditorJsLibrary: EditorJs, // Pass the library instance to the columns instance.
+            tools: column_tools // IMPORTANT! ref the column_tools
         }
     },
-
 
 
     table: {
@@ -237,8 +234,8 @@ export const EDITOR_JS_TOOLS = (EditorJs) => ({
             locale: 'tr' // or ['tr', 'TR', 'tr-TR']
         }
     },
-    youtubeEmbed:{
-        class:YoutubeEmbed,
+    youtubeEmbed: {
+        class: YoutubeEmbed,
         shortcut: 'CMD+SHIFT+Y',
     },
     subscript: {
